@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 
 const StickyTable = (props) => {
   const data = props?.data ?? [];
-  const columns = props?.columns ?? [];
+  const sortOrder = props?.sortOrder ?? [];
+  const columns = (props?.columns ?? []).sort(
+    (a, b) => sortOrder.indexOf(a.key) - sortOrder.indexOf(b.key)
+  );
   const gridSize = columns?.length ?? 0;
 
   function formatValue(value, type) {

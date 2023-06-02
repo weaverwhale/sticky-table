@@ -48,12 +48,13 @@ export const columns = [
     sortable: false,
   },
 ];
-const columnOrder = [
+
+export const sortOrder = [
   "week",
   "orders",
   "sales",
   "cost",
-  "unit_price",
+  "unit_cost",
   "ad_spend",
   "roas",
   "cpa",
