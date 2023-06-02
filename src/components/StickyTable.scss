@@ -1,7 +1,7 @@
-$white: white;
-$black: black;
-$gray-dark: #4f4f4f;
-$gray-light: #dedede;
+$black: #213547;
+$background-color: white;
+$border-color: $black;
+$zebra-color: #dedede;
 $tablet: 768px;
 
 .sticky-table-header {
@@ -9,11 +9,11 @@ $tablet: 768px;
   user-select: none;
   pointer-events: none;
   top: 0;
-  background: $white;
+  background: $background-color;
   z-index: 2;
   width: auto;
   overflow: hidden;
-  border-bottom: 1px solid $gray-dark;
+  border-bottom: 1px solid $border-color;
   text-transform: capitalize;
 
   p {
@@ -70,18 +70,18 @@ $tablet: 768px;
 
   p:not(:first-of-type) {
     font-size: 0.85em;
-    border-left: 1px solid $gray-dark;
+    border-left: 1px solid $border-color;
     justify-content: center !important;
   }
 }
 
 .sticky-table-item {
   &:nth-of-type(odd) {
-    background: $white;
+    background: $background-color;
   }
 
   &:nth-of-type(even) {
-    background: $gray-light;
+    background: $zebra-color;
   }
 }
 
@@ -135,5 +135,5 @@ $tablet: 768px;
   max-width: 350px;
   max-height: 200px;
   border-radius: 15px;
-  box-shadow: 1px 1px 10px black;
+  box-shadow: 1px 1px 10px $black;
 }
