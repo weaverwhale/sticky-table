@@ -6,6 +6,8 @@ const StickyTable = (props) => {
   const gridSize = columns?.length ?? 0;
 
   function formatValue(value, type) {
+    if (value === null || value === undefined || value === "NaN") value = 0;
+
     if (type === "currency") {
       return `$${value}`;
     } else if (type === "date") {
