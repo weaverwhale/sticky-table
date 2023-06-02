@@ -101,8 +101,8 @@ const StickyTable = (props) => {
                   gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
                 }}
               >
-                {columns.map((column) => (
-                  <p>{column.name}</p>
+                {columns.map((column, i) => (
+                  <p key={i}>{column.name}</p>
                 ))}
               </div>
             ))}
