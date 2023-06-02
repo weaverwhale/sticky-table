@@ -1,0 +1,146 @@
+$white: white;
+$black: black;
+$gray-dark: #4f4f4f;
+$gray-light: #c6c6c6;
+$blue: #0072ce;
+$light-blue: #00a3e0;
+$tablet: 768px;
+
+.sticky-table-header {
+  border-bottom: 1px solid $gray-dark;
+  text-transform: capitalize;
+
+  p {
+    align-items: flex-end !important;
+  }
+
+  &.fixed {
+    position: fixed;
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+    top: 54px;
+    background: $white;
+    z-index: 1;
+    width: calc(100% - 2em);
+    max-width: 1248px !important;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s, opacity 0.3s;
+
+    &.sticky {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 1100px) {
+      top: 64px;
+    }
+  }
+}
+
+.sticky-table-header,
+.sticky-table-item {
+  display: grid;
+  align-items: center;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
+  p,
+  a {
+    font-size: 0.75em !important;
+
+    @media (min-width: $tablet) {
+      font-size: 0.85em !important;
+    }
+  }
+
+  p {
+    display: flex !important;
+    align-items: center !important;
+    height: 100%;
+    min-width: 70px;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: $tablet) {
+      min-width: 80px;
+    }
+
+    a {
+      width: 100%;
+    }
+  }
+
+  p:first-of-type {
+    min-width: 100px;
+
+    @media (min-width: $tablet) {
+      min-width: 125px;
+    }
+  }
+
+  p:not(:first-of-type) {
+    font-size: 0.85em;
+    border-left: 1px solid $gray-dark;
+    justify-content: center !important;
+  }
+}
+
+.sticky-table-item {
+  &:nth-of-type(odd) {
+    background: $white;
+  }
+
+  &:nth-of-type(even) {
+    background: $gray-light;
+  }
+}
+
+.sticky-table-center {
+  text-align: center;
+}
+
+.sticky-table-wrapper {
+  overflow: auto;
+
+  .sticky-table {
+    min-width: 100%;
+    width: fit-content; //sorry ie
+
+    .sticky-table-item {
+      a {
+        color: $blue;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          color: $light-blue;
+        }
+      }
+
+      &,
+      p {
+        cursor: inherit !important;
+      }
+
+      .compare-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        label {
+          margin-top: -16px;
+
+          @media (min-width: $tablet) {
+            padding-left: 1.25em;
+          }
+        }
+      }
+    }
+  }
+}
