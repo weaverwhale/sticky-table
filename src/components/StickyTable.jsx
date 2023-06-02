@@ -16,43 +16,45 @@ const StickyTable = (props) => {
   }
 
   return (
-    <>
+    <div className="sticky-table-wrapper">
       {data.length > 0 && columns.length > 0 ? (
-        <div className="sticky-table-wrapper">
-          <div className="sticky-table">
-            {/* header */}
+        <div className="sticky-table">
+          {/* header */}
+          <div
+            className="sticky-table-header"
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+            }}
+          >
+            {columns.map((column, i) => (
+              <p key={i}>
+                <span>{column.name}</span>
+              </p>
+            ))}
+          </div>
+          {/* data */}
+          {data.map((row, i) => (
             <div
-              className="sticky-table-header"
+              key={i}
+              className="sticky-table-item"
               style={{
                 display: "grid",
                 gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
               }}
             >
               {columns.map((column, i) => (
-                <p key={i}>{column.name}</p>
+                <p key={i}>
+                  <span>{formatValue(row[column.key], column.dataType)}</span>
+                </p>
               ))}
             </div>
-            {/* data */}
-            {data.map((row, i) => (
-              <div
-                key={i}
-                className="sticky-table-item"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
-                }}
-              >
-                {columns.map((column, i) => (
-                  <p key={i}>{formatValue(row[column.key], column.dataType)}</p>
-                ))}
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       ) : (
         <h4>No Data provided</h4>
       )}
-    </>
+    </div>
   );
 };
 
